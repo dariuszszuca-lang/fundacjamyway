@@ -1,0 +1,7 @@
+{
+  "name": "Fundacja MyWay - Droga do Wolności",
+  "description": "Profesjonalna pomoc w powrocie do zdrowia dla osób uzależnionych. Portal fundacji oferujący wsparcie, edukację i przejrzysty system darowizn.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
