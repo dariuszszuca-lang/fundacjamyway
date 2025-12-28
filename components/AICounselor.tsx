@@ -26,7 +26,8 @@ const AICounselor: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+      // Use the API key directly from process.env.API_KEY as per the @google/genai guidelines.
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: userMsg,
@@ -38,7 +39,8 @@ const AICounselor: React.FC = () => {
       const aiText = response.text || 'Przepraszam, wystąpił błąd w połączeniu. Spróbuj ponownie za chwilę.';
       setMessages(prev => [...prev, { role: 'ai', text: aiText }]);
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'ai', text: 'Przepraszam, chwilowo nie mogę odpowiedzieć. Skontaktuj się z nami telefonicznie.' }]);
+      console.error("AI Error:", error);
+      setMessages(prev => [...prev, { role: 'ai', text: 'Przepraszam, chwilowo nie mogę odpowiedzieć. Skontaktuj się z nami telefonicznie (+48 731 395 295).' }]);
     } finally {
       setIsLoading(false);
     }

@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import Donate from './pages/Donate';
-import Volunteer from './pages/Volunteer';
-import AICounselor from './components/AICounselor';
+import Layout from './components/Layout.tsx';
+import Home from './pages/Home.tsx';
+import Donate from './pages/Donate.tsx';
+import Volunteer from './pages/Volunteer.tsx';
+import AICounselor from './components/AICounselor.tsx';
 
 const App: React.FC = () => {
   return (

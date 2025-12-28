@@ -17,9 +17,9 @@ const Header: React.FC = () => {
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-    if (path.startsWith('#')) {
+    if (path.startsWith('#') || (path.startsWith('/#') && isHome)) {
       e.preventDefault();
-      const id = path.substring(1);
+      const id = path.includes('#') ? path.split('#')[1] : path;
       const el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
